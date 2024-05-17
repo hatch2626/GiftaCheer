@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your OKRs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="fun-title">Share your OKRs here</h1>
+        <form id="okrForm">
+            <div class="form-row">
+                <label for="objective">Objective Name</label>
+                <input type="text" id="objective" name="objective" required>
+            </div>
+            <div class="form-row">
+                <label for="keyResults">Key Results</label>
+                <div id="keyResultsContainer">
+                    <input type="text" name="keyResult" class="keyResult" required>
+                </div>
+                <button type="button" id="addKeyResult" onclick="addKeyResult()">Add Key Result</button>
+            </div>
+            <div class="form-row">
+                <label for="owner">Owner</label>
+                <input type="text" id="owner" name="owner" required>
+            </div>
+            <div class="form-row">
+                <label for="endDate">Target End-Date</label>
+                <input type="date" id="endDate" name="endDate" required>
+            </div>
+            <div class="form-row">
+                <label for="progress">Progress</label>
+                <input type="range" id="progress" name="progress" min="0" max="100" step="1" oninput="updateProgressDial(this.value)">
+                <div id="progressDial" class="progress-dial">
+                    <span id="progressLabel">Not Yet Started</span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit">Add another OKR</button>
+                <button type="button" onclick="navigateTo('page3.html')">Gift-a-Cheer</button>
+                <button type="button" onclick="navigateTo('index.html')">Home</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
