@@ -1,3 +1,5 @@
+let keyResultCount = 1; // Initialize the key result count
+
 function navigateTo(page) {
     console.log(`Navigating to ${page}`); // Log to check if function is called
     window.location.href = page;
@@ -10,37 +12,22 @@ function addKeyResult() {
     }
     
     keyResultCount++;
-    const container = document.getElementById('keyResultsContainer');
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.name = 'keyResult';
-    input.className = 'keyResult';
-    input.required = true;
-    container.appendChild(input);
-}
+    const table = document.getElementById('keyResultsTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
 
-function updateProgressDial(value) {
-    const label = document.getElementById('progressLabel');
-    let text;
-    let color;
+    const keyResultCell = newRow.insertCell(0);
+    const ownerCell = newRow.insertCell(1);
+    const endDateCell = newRow.insertCell(2);
+    const progressCell = newRow.insertCell(3);
 
-    if (value < 25) {
-        text = "Not Yet Started";
-        color = "red";
-    } else if (value < 50) {
-        text = "On the Way";
-        color = "red";
-    } else if (value < 75) {
-        text = "Getting There";
-        color = "orange";
-    } else if (value < 100) {
-        text = "Reaching Soon";
-        color = "orange";
-    } else {
-        text = "Completed";
-        color = "green";
-    }
-
-    label.textContent = text;
-    label.style.color = color;
+    keyResultCell.innerHTML = `<input type="text" name="keyResult" class="keyResult" required>`;
+    ownerCell.innerHTML = `<input type="text" name="owner" class="owner" required>`;
+    endDateCell.innerHTML = `<input type="date" name="endDate" class="endDate" required>`;
+    progressCell.innerHTML = `
+        <label><input type="radio" name="progress${keyResultCount}" value="Not Yet Started"> ⏳</label>
+        <label><input type="radio" name="progress${keyResultCount}" value="On the Way"> 🚶</label>
+        <label><input type="radio" name="progress${keyResultCount}" value="Getting There"> 🏃</label>
+        <label><input type="radio" name="progress${keyResultCount}" value="Reaching Soon"> 🚀</label>
+        <label><input type="radio" name="progress${keyResultCount}" value="Completed"> 🙌</label>
+    `;
 }

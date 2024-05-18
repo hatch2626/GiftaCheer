@@ -8,36 +8,50 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="fun-title">Share your OKRs here</h1>
-        <form id="okrForm">
-            <div class="form-row">
-                <label for="objective">Objective Name</label>
-                <input type="text" id="objective" name="objective" required>
-            </div>
-            <div class="form-row">
-                <label for="keyResults">Key Results</label>
-                <div id="keyResultsContainer">
-                    <input type="text" name="keyResult" class="keyResult" required>
+        <img src="OKRquote.png" alt="Logo" class="logo">
+        <p class="description">
+            This is a safe space to share your OKRs. <br>
+            It does not matter if you have yet to get started (⏳), on the way (🚶), getting there (🏃 ), reaching soon (🚀) or have completed (🙌). <br>
+            We are here to cheer for each other. <br>
+            Remember our ABCs: <strong>Agility, Boldness and Courage</strong>. <br>
+             
+        </p>
+        <form id="okrForm" class="okr-form">
+            <div class="upper-block">
+                <div class="form-row">
+                    <label for="objective">Objective Name</label>
+                    <input type="text" id="objective" name="objective" required>
                 </div>
-                <button type="button" id="addKeyResult" onclick="addKeyResult()">Add Key Result</button>
             </div>
-            <div class="form-row">
-                <label for="owner">Owner</label>
-                <input type="text" id="owner" name="owner" required>
-            </div>
-            <div class="form-row">
-                <label for="endDate">Target End-Date</label>
-                <input type="date" id="endDate" name="endDate" required>
-            </div>
-            <div class="form-row">
-                <label for="progress">Progress</label>
-                <input type="range" id="progress" name="progress" min="0" max="100" step="1" oninput="updateProgressDial(this.value)">
-                <div id="progressDial" class="progress-dial">
-                    <span id="progressLabel">Not Yet Started</span>
-                </div>
+            <div class="lower-block">
+                <table id="keyResultsTable">
+                    <thead>
+                        <tr>
+                            <th>Key Result</th>
+                            <th>Owner</th>
+                            <th>Target End Date</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="keyResult" class="keyResult" required></td>
+                            <td><input type="text" name="owner" class="owner" required></td>
+                            <td><input type="date" name="endDate" class="endDate" required></td>
+                            <td class="progress-container">
+                                <label><input type="radio" name="progress0" value="Not Yet Started"> ⏳</label>
+                                <label><input type="radio" name="progress0" value="On the Way"> 🚶</label>
+                                <label><input type="radio" name="progress0" value="Getting There"> 🏃</label>
+                                <label><input type="radio" name="progress0" value="Reaching Soon"> 🚀</label>
+                                <label><input type="radio" name="progress0" value="Completed"> 🙌</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" id="addKeyResult" onclick="addKeyResult()">+ Key Result</button>
             </div>
             <div class="buttons">
-                <button type="submit">Add another OKR</button>
+                <button type="submit">+ OKR</button>
                 <button type="button" onclick="navigateTo('page3.html')">Gift-a-Cheer</button>
                 <button type="button" onclick="navigateTo('index.html')">Home</button>
             </div>
@@ -46,3 +60,5 @@
     <script src="scripts2.js"></script>
 </body>
 </html>
+
+  
