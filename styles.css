@@ -14,22 +14,35 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh; /* Adjust to center the content vertically */
+    height: 100vh; /* Adjusted to full viewport height */
 }
 
 .logo {
+    margin-top: 0;
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px; /* Add margin to separate the logo from the text */
+    margin-bottom: 0px; /* Add margin to separate the logo from the text */
 }
-
+.header {
+    font-size: 2.5em;
+    margin-top: -50; /* Reduced margin to bring the header closer to the logo */
+    margin-bottom: 20px; /* Adjust margin-bottom as needed */
+    color: #333;
+}
 .description {
+    text-align: justify;
     margin: 20px 0;
     padding: 10px 20px;
     font-size: 1.2em;
     color: #333;
-    border: 2px solid #333; /* Add border around the text */
-    border-radius: 10px; /* Optional: Add rounded corners to the border */
+    line-height: 1.5; /* Adjust line height for better readability */
+    /*border: 2px solid #333; /* Add border around the text */
+    /*border-radius: 10px; /* Optional: Add rounded corners to the border */
+}
+
+.bold-word {
+    color: #ed0eed; /* Set the color of the bold words */
+    font-weight: bold; /* Make the bold words bold */
 }
 
 .buttons button {
@@ -47,5 +60,3 @@ body {
 .buttons button:hover {
     background-color: #0056b3;
 }
-
-
