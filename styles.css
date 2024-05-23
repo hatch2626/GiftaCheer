@@ -15,6 +15,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh; /* Adjusted to full viewport height */
+    margin-bottom: 20px; /* Ensure spacing for footer */
 }
 
 .logo {
@@ -60,3 +61,4 @@ body {
 .buttons button:hover {
     background-color: #0056b3;
 }
+
