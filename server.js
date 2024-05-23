@@ -1,5 +1,5 @@
 //Needed for dotenv
-require(“dotenv”).config();
+require("dotenv").config();
 
 //Needed for Express
 var express = require('express')
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //root page
-app.get('/index', function(req, res) {
+app.get('/', function(req, res) {
 res.render('index');
 });
 
