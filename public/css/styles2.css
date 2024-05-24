@@ -138,3 +138,38 @@ th {
 .buttons button:hover {
     background-color: #9deeaa;
 }
+
+/* Other CSS styles remain unchanged */
+
+.disclaimer {
+    margin-top: 20px; /* Add space between buttons and disclaimer */
+    font-size: 0.8em; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    /* Adjustments for screens up to 600 pixels wide */
+    .description {
+        font-size: 0.9em; /* Decrease font size for better readability */
+    }
+
+    .header {
+        font-size: 1.5em; /* Decrease header font size */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .buttons button {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
+
+    .disclaimer {
+        margin-top: 10px; /* Adjust top margin for disclaimer */
+        font-size: 0.7em; /* Decrease font size for disclaimer */
+    }
+}

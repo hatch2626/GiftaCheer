@@ -91,17 +91,37 @@ button:active {
     background-color: #003f7f;
 }
 
+/* Other CSS styles remain unchanged */
+
+.disclaimer {
+    margin-top: 260px; /* Add space between buttons and disclaimer */
+    font-size: 0.8em; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+    text-align: center;
+}
+
 @media (max-width: 600px) {
-    .intro-paragraph {
-        font-size: 1em;
+    /* Adjustments for screens up to 600 pixels wide */
+    .description {
+        font-size: 0.9em; /* Decrease font size for better readability */
     }
 
-    table, th, td {
-        font-size: 0.9em;
+    .header {
+        font-size: 1.5em; /* Decrease header font size */
     }
 
-    button {
-        width: 100%;
-        padding: 12px;
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .buttons button {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
+
+    .disclaimer {
+        margin-top: 10px; /* Adjust top margin for disclaimer */
+        font-size: 0.7em; /* Decrease font size for disclaimer */
     }
 }

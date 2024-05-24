@@ -62,3 +62,51 @@ body {
     background-color: #0056b3;
 }
 
+.disclaimer {
+    position: absolute;
+    bottom: -100px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%; /* Adjust the width as needed */
+}
+
+.disclaimer-text {
+    font-size: 0.8em; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    /* Adjustments for screens up to 600 pixels wide */
+    .description {
+        font-size: 0.9em; /* Decrease font size for better readability */
+    }
+
+    .header {
+        font-size: 1.5em; /* Decrease header font size */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .buttons button {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
+
+    .disclaimer {
+        position: absolute;
+        bottom: 10px; /* Adjust bottom spacing */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 90%;
+        font-size: 0.7em; /* Decrease font size for disclaimer */
+    }
+}
