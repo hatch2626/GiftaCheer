@@ -4,32 +4,32 @@ async function fetchOKRs() {
     // Simulating fetching data from a database
     const okrs = [
         {
-            objective: "Complete Project Alpha",
-            keyResults: ["Finish coding tasks"],
-            owner: "John Doe",
-            endDate: "2024-06-30",
-            progress: "🚶"
+            objective: "Complete TechUp Web App",
+            keyResults: ["Build HTML"],
+            owner: "YL",
+            endDate: "2024-05-15",
+            progress: "🙌"
         },
         {
-            objective: "Complete Project Alpha",
-            keyResults: ["Prepare documentation"],
-            owner: "Jane Smith",
-            endDate: "2024-07-15",
+            objective: "Complete TechUp Web App",
+            keyResults: ["Deliver CSS"],
+            owner: "YL",
+            endDate: "2024-05-20",
+            progress: "🙌"
+        },
+        {
+            objective: "Complete TechUp Web App",
+            keyResults: ["Web site is operational"],
+            owner: "YL",
+            endDate: "2024-05-29",
             progress: "🏃"
         },
         {
-            objective: "Launch Marketing Campaign",
-            keyResults: ["Design marketing materials", "Implement social media strategy"],
-            owner: "Michael Brown",
-            endDate: "2024-08-01",
-            progress: "🚀"
-        },
-        {
-            objective: "Launch Marketing Campaign",
-            keyResults: ["Design marketing materials", "Implement social media strategy"],
-            owner: "Emily Davis",
+            objective: "Gift My Team Cheers",
+            keyResults: ["90% of team access the web app"],
+            owner: "YL",
             endDate: "2024-08-15",
-            progress: "🙌"
+            progress: "🏃"
         }
     ];
 
@@ -68,8 +68,10 @@ async function fetchOKRs() {
             thumbsUp.onclick = function() {
                 toggleThumbs(thumbsUp);
             };
+            thumbsUp.style.cursor = 'pointer'; // Ensure the cursor changes to pointer on hover
             tdCheerUp.appendChild(thumbsUp);
         }
+
         const textarea = document.createElement('textarea');
         textarea.className = 'cheer-input';
         textarea.placeholder = 'I want to say (max 250 characters)';
@@ -80,22 +82,27 @@ async function fetchOKRs() {
     });
 }
 
+//Thumbs color
 function toggleThumbs(selectedThumb) {
     const thumbs = selectedThumb.parentElement.querySelectorAll('.thumbs-up');
     let clicked = false; // Flag to indicate if the selected thumb has been clicked
-    thumbs.forEach(thumb => {
+
+    thumbs.forEach((thumb, index) => {
         if (thumb === selectedThumb) {
             clicked = true;
-            thumb.style.color = 'green'; // Color the clicked thumb
+        }
+
+        // Check if the current thumb is clicked or before the clicked thumb
+        if (clicked || thumb === selectedThumb) {
+            thumb.style.color = 'yellow'; // Color the clicked thumb or thumbs before it
         } else {
-            if (clicked) {
-                thumb.style.color = 'lightgreen'; // Color thumbs after the clicked thumb
-            } else {
-                thumb.style.color = ''; // Reset color for thumbs before the clicked thumb
-            }
+            thumb.style.color = ''; // Reset color for thumbs after the clicked thumb
         }
     });
 }
+
+
+
 
 // Call fetchOKRs when the page loads
 window.onload = fetchOKRs;

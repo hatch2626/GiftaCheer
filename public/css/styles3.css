@@ -71,6 +71,17 @@ td {
     background-color: #fff;
 }
 
+.thumbs-up {
+    cursor: pointer;
+}
+
+.thumbs-up:hover {
+    transform: scale(1.2); /* Increase size on hover */
+}
+
+
+
+
 button {
     padding: 10px 20px;
     margin: 10px 0;
