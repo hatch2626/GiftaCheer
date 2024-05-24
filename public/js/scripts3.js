@@ -102,5 +102,5 @@ window.onload = fetchOKRs;
 
 function navigateTo(page) {
     console.log(`Navigating to ${page}`); // Log to check if function is called
-    window.location.href = page;
+    window.location.href = `/${page}`;
 }
