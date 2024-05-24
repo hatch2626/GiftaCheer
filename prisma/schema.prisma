@@ -1,0 +1,42 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Objective {
+  id          Int         @id @default(autoincrement())
+  name        String
+  keyResults  KeyResult[]
+}
+
+model KeyResult {
+  id            Int        @id @default(autoincrement())
+  objectiveId   Int
+  objective     Objective  @relation(fields: [objectiveId], references: [id])
+  description   String
+  owner         String
+  targetEndDate DateTime
+  progress      Progress
+  cheers        Cheer[]
+}
+
+model Cheer {
+  id          Int        @id @default(autoincrement())
+  keyResultId Int
+  keyResult   KeyResult  @relation(fields: [keyResultId], references: [id])
+  message     String     @db.VarChar(250)
+}
+
+enum Progress {
+  NOT_YET_STARTED
+  ON_THE_WAY
+  GETTING_THERE
+  REACHING_SOON
+  COMPLETED
+}

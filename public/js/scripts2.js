@@ -1,9 +1,15 @@
 let keyResultCount = 1; // Initialize the key result count
 
+
+
 function navigateTo(page) {
-    console.log(`Navigating to ${page}`); // Log to check if function is called
-    window.location.href = page;
+    if (page === 'home') {
+        window.location.href = '/'; // Navigate to the home page explicitly
+    } else {
+        window.location.href = `/${page}`;
+    }
 }
+
 
 function addKeyResult() {
     if (keyResultCount >= 5) {

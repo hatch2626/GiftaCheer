@@ -1,39 +1,93 @@
-// Needed for dotenv
+// Required for dotenv
 require('dotenv').config();
 
-// Needed for Express
-var express = require('express');
-var app = express();
-var path = require('path');
+// Required for Express
+const express = require('express');
+const app = express();
+const path = require('path');
+
+// Required for Prisma
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 // Setting where the location of your EJS files are
-app.set('views', '.');
+app.set('views', path.join(__dirname));
 
 // Needed for EJS
 app.set('view engine', 'ejs');
 
 // Needed for public directory
-app.use(express.static(__dirname + '/public')); // Use __dirname instead of _dirname
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Needed for parsing form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Root page
-app.get('/', function (req, res) {
+app.get('/', async (req, res) => {
   res.render('index');
 });
 
-app.get('/page2', function (req, res) {
+app.get('/page2', (req, res) => {
   res.render('page2');
 });
 
-app.get('/page3', function (req, res) {
-  res.render('page3');
+app.get('/page3', async (req, res) => {
+  const objectives = await prisma.objective.findMany({
+    include: {
+      keyResults: {
+        include: {
+          cheers: true
+        }
+      }
+    }
+  });
+  res.render('page3', { objectives });
+});
+
+// Add objective route
+app.post('/add-objective', async (req, res) => {
+  const { name, keyResults } = req.body;
+  try {
+    const createdObjective = await prisma.objective.create({
+      data: {
+        name: name,
+        keyResults: {
+          create: keyResults.map(kr => ({
+            name: kr.name,
+            owner: kr.owner,
+            endDate: new Date(kr.endDate),
+            progress: kr.progress
+          }))
+        }
+      }
+    });
+    res.redirect('/');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error creating objective");
+  }
+});
+
+// Add cheer route
+app.post('/add-cheer', async (req, res) => {
+  const { keyResultId, message } = req.body;
+  try {
+    await prisma.cheer.create({
+      data: {
+        keyResultId: parseInt(keyResultId),
+        message: message
+      }
+    });
+    res.redirect('/page3');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error adding cheer");
+  }
 });
 
 // Tells the app which port to run on
-app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
