@@ -101,6 +101,9 @@ function toggleThumbs(selectedThumb) {
 window.onload = fetchOKRs;
 
 function navigateTo(page) {
-    console.log(`Navigating to ${page}`); // Log to check if function is called
-    window.location.href = `/${page}`;
+    if (page === 'home') {
+        window.location.href = '/'; // Navigate to the home page explicitly
+    } else {
+        window.location.href = `/${page}`;
+    }
 }
