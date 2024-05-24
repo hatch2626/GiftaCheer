@@ -113,6 +113,11 @@
         </table>
         <button onclick="navigateTo('')">Back to Home</button>
     </div>
-    <script src="./public/js/scripts3.js"></script>
+    <script>
+        function navigateTo(page) {
+            window.location.href = `/${page}`;
+        }
+    </script>
+    <script src="/js/scripts3.js"></script>
 </body>
 </html>
