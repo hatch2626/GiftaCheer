@@ -1,11 +1,6 @@
 // Required for dotenv
 require('dotenv').config();
 
-// Required for Express
-const express = require('express');
-const app = express();
-const path = require('path');
-
 // Required for Prisma
 const { PrismaClient } = require('@prisma/client');
 let prisma;
@@ -17,6 +12,11 @@ try {
   console.error('Error initializing Prisma Client:', error);
   process.exit(1); // Exit the process if Prisma initialization fails
 }
+
+// Required for Express
+const express = require('express');
+const app = express();
+const path = require('path');
 
 // Setting where the location of your EJS files are
 app.set('views', path.join(__dirname));
