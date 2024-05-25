@@ -86,8 +86,32 @@ app.post('/add-cheer', async (req, res) => {
   }
 });
 
+// Add OKR route
+app.post('/api/okr', async (req, res) => {
+  const { objective, keyResult, owner, endDate, progress } = req.body;
+
+  try {
+    const createdObjective = await prisma.objective.create({
+      data: {
+        name: objective,
+        keyResults: {
+          create: {
+            name: keyResult,
+            owner: owner,
+            endDate: new Date(endDate),
+            progress: progress
+          }
+        }
+      }
+    });
+    res.status(201).json({ message: 'OKR saved successfully', data: createdObjective });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error saving OKR");
+  }
+});
+
 // Tells the app which port to run on
 app.listen(8080, () => {
   console.log('Server is running on port 8080');
 });
-

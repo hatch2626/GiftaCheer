@@ -26,7 +26,7 @@
             Remember our ABCs: <strong>Agility, Boldness and Courage</strong>. <br>
              
         </p>
-        <form id="okrForm" class="okr-form">
+        <form id="okrForm" class="okr-form" method="post" action="/api/submit-okr">
             <div class="upper-block">
                 <div class="form-row">
                     <label for="objective">Objective Name</label>
@@ -61,7 +61,7 @@
                 <button type="button" id="addKeyResult" onclick="addKeyResult()">+ Key Result</button>
             </div>
             <div class="buttons">
-                <button type="submit">+ OKR</button>
+                <button type="submit">Submit</button>
                 <button type="button" onclick="navigateTo('page3')">Gift-a-Cheer</button>
                 <button type="button" onclick="navigateTo('home')">Home</button>
             </div>
