@@ -8,7 +8,15 @@ const path = require('path');
 
 // Required for Prisma
 const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+let prisma;
+
+try {
+  prisma = new PrismaClient();
+  console.log('Prisma Client initialized successfully');
+} catch (error) {
+  console.error('Error initializing Prisma Client:', error);
+  process.exit(1); // Exit the process if Prisma initialization fails
+}
 
 // Setting where the location of your EJS files are
 app.set('views', path.join(__dirname));
