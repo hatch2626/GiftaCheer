@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your OKRs</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="page2">
+        <div class="container">
+            <p class="description">
+                This is a safe space to share your OKRs. <br>
+                It does not matter if you have yet to get started (⏳), on the way (🚶), getting there (🏃 ), reaching soon (🚀) or have completed (🙌). <br>
+                We are here to cheer for each other. <br>
+                Remember our ABCs: <strong>Agility, Boldness and Courage</strong>. <br>
+            </p>
+            <form id="okrForm" class="okr-form" method="post" action="/api/submit-okr">
+                <div class="upper-block">
+                    <div class="form-row">
+                        <label for="objective">Objective Name</label>
+                        <input type="text" id="objective" name="objective" required>
+                    </div>
+                </div>
+                <div class="lower-block">
+                    <table id="keyResultsTable">
+                        <thead>
+                            <tr>
+                                <th>Key Result</th>
+                                <th>Owner</th>
+                                <th>Target End Date</th>
+                                <th>Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="keyResult" class="keyResult" required></td>
+                                <td><input type="text" name="owner" class="owner" required></td>
+                                <td><input type="date" name="endDate" class="endDate" required></td>
+                                <td class="progress-container">
+                                    <label><input type="radio" name="progress0" value="Not Yet Started"> ⏳</label>
+                                    <label><input type="radio" name="progress0" value="On the Way"> 🚶</label>
+                                    <label><input type="radio" name="progress0" value="Getting There"> 🏃</label>
+                                    <label><input type="radio" name="progress0" value="Reaching Soon"> 🚀</label>
+                                    <label><input type="radio" name="progress0" value="Completed"> 🙌</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" id="addKeyResult" onclick="addKeyResult()">+ Key Result</button>
+                </div>
+                <div class="buttons">
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="navigateTo('page3')">Gift-a-Cheer</button>
+                    <button type="button" onclick="navigateTo('home')">Home</button>
+                </div>
+            </form>
+        </div>
+  
+  <script>
+    document.getElementById('okrForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Register the input data in the backend database
+      // Add your AJAX code here to submit the form data
+    });
+  </script>
+
+<!-- Disclaimer -->
+    <div class="disclaimer">
+            <p class="disclaimer-text">
+                Disclaimer: <br>
+                This website is created for learning purposes only.
+                The information provided here should not be considered professional advice. <br>
+                Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. <br>
+                Any actions you take based on the contents of this website are at your own risk.
+                We are not liable for any losses or damages incurred from the use of this website.
+            </p>
+        </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

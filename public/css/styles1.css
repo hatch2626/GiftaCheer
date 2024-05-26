@@ -5,7 +5,6 @@ body {
     padding: 0;
     background-color: #f2e3e6;
 }
-
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -16,19 +15,16 @@ body {
     justify-content: center;
     text-align: center;
 }
-
 .logo {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
 }
-
 .header {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #333;
 }
-
 .description {
     text-align: justify;
     margin: 20px 0;
@@ -37,12 +33,32 @@ body {
     color: #333;
     line-height: 1.5;
 }
-
 .bold-word {
     color: #ed0eed;
     font-weight: bold;
 }
+/* Carousel and card styles for index */
+.carousel-item {
+    height: 300px;
+}
 
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-body {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
 .buttons {
     margin-top: 20px;
 }

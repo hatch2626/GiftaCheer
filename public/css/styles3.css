@@ -1,111 +1,148 @@
-body, html {
-        margin: 0;
-        padding: 0;
+body {
+        background-color: hsl(120, 62%, 96%); /* Light green background color */
         font-family: Arial, sans-serif;
-        height: 100%;
-        background: url('/images/logoC.png') no-repeat center top;
-        background-size: cover;
-        background-position-y: 1px; /* Adjust the value as needed - do not remove this line */
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        min-height: 100vh; /* Allow content to expand */
+        padding-top: 20px; /* Separate logo from top edge */
     }
-    body::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 200%; /* Extend the height below the bottom border of the background image */
-        background-color: #d9f6ff; /* Light blue background color */
-        z-index: -1; /* Ensure it's behind the content */
+    
+    .logo {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px; /* Separate logo from the text */
+    }
+    
+    .description {
+        text-align: justify;
+        margin: 20px 0;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: #333;
+        line-height: 1.5; /* Better readability */
     }
     
     .container {
+        text-align: center;
+        width: 90%;
+        max-width: 1200px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(244, 235, 209, 0.1);
+    }
+    
+    .okr-form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        text-align: center;
-        height: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        padding-top: 40vh; /* Start the content halfway down */
-        /* min-height: 100vh; /* Set minimum height equal to viewport height */
-        /* background-color: #D6E9F4; /* Background color of the webpage */
-    
+        width: 100%;
     }
     
-    .intro-paragraph {
-        font-size: 1.2em;
-        color: #151515;
-        margin: 20px 0;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    .upper-block,
+    .lower-block {
+        width: 100%;
+        margin-bottom: 20px;
     }
     
-    /* Centering table headers */
-    th {
-        background-color: #f4f4f4;
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    label {
+        margin-bottom: 5px;
         font-weight: bold;
-        text-align: center;
     }
     
-    /* Styling for table and centering data in specific columns */
+    input[type="text"], input[type="date"], .keyResult {
+        width: 100%; /* Full width of the container */
+        padding: 10px;
+        border: 2px solid #036328; /* Warm color */
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+    
     table {
-        width: 90%;
-        margin: 20px auto;
+        width: 100%;
         border-collapse: collapse;
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     
     th, td {
-        padding: 12px 15px;
-        border: 1px solid #ddd;
+        border: 1px solid #a2ed61;
+        padding: 8px;
+        text-align: center; /* Center table headers and cells */
     }
     
-    /* Centering content in the Target End-Date and Progress columns */
-    td.end-date, td.progress {
-        text-align: center;
-        vertical-align: middle;
+    th {
+        background-color: #a2ed61;
+        font-weight: bold;
     }
     
-    td {
-        background-color: #fff;
+    .progress-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
     
-    .thumbs-up {
+    .checkbox-container label {
+        display: flex;
+        align-items: center;
         cursor: pointer;
+        font-size: 16px;
     }
     
-    .thumbs-up:hover {
-        transform: scale(1.2); /* Increase size on hover */
+    .checkbox-container input[type="radio"] {
+        margin-right: 10px;
     }
     
-    
-    
-    
-    button {
+    #addKeyResult {
+        margin-top: 10px;
         padding: 10px 20px;
-        margin: 10px 0;
-        border: none;
-        background-color: #007BFF;
-        color: #fff;
+        font-size: 0.85em;
         cursor: pointer;
-        font-size: 1em;
+        border: none;
+        background-color: #022c09ad;
+        color: white;
         border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
     }
     
-    button:hover {
-        background-color: #0056b3;
+    #addKeyResult:hover {
+        background-color: #9deeaa;
     }
     
-    button:active {
-        background-color: #003f7f;
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .buttons button {
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        border: none;
+        background-color: #022c09ad;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .buttons button:hover {
+        background-color: #9deeaa;
     }
     
     /* Other CSS styles remain unchanged */
     
     .disclaimer {
-        margin-top: 260px; /* Add space between buttons and disclaimer */
+        margin-top: 20px; /* Add space between buttons and disclaimer */
         font-size: 0.8em; /* Adjust font size as needed */
         color: #666; /* Adjust color as needed */
         text-align: center;
@@ -136,4 +173,3 @@ body, html {
             font-size: 0.7em; /* Decrease font size for disclaimer */
         }
     }
-    
